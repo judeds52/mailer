@@ -15,7 +15,8 @@
     "@angular/animations": "~11.0.0-next.2",
     "@angular/cdk": "^10.2.1",
     "@angular/cli": "~11.0.0-next.2",
-    "@angular/common": "~11.0.0-next.2",
+    "@angular/compiler-cli": "~11.0.0-next.2",
+   "@angular/common": "~11.0.0-next.2",
     "@angular/compiler": "~11.0.0-next.2",
     "@angular/core": "~11.0.0-next.2",
     "@angular/forms": "~11.0.0-next.2",
@@ -55,7 +56,8 @@
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
-    "tslint": "~5.11.0"
+    "tslint": "~5.11.0",
+    "typescript": "~4.0.2"
   },
   "engines": {
     "node": "10.15.3",
