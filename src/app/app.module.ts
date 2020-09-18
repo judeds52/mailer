@@ -7,6 +7,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { HttpClientModule } from '@angular/common/http';
 import { GraphComponent } from './graph/graph.component';
+import { graphService } from './graph/graph.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { GraphComponent } from './graph/graph.component';
     NgxDatatableModule 
      
   ],
-  providers: [],
+  providers: [graphService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
