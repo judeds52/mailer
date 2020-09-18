@@ -15,7 +15,7 @@ export class graphService {
 constructor(private http:HttpClient){}
 
 getdata(){
-return  this.http.get('https://server-taskangular1.herokuapp.com/')
+return  this.http.get('https://server-taskangular1.herokuapp.com')
     
 }
 

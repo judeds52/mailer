@@ -8,6 +8,7 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { HttpClientModule } from '@angular/common/http';
 import { GraphComponent } from './graph/graph.component';
 import { graphService } from './graph/graph.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,9 @@ import { graphService } from './graph/graph.service';
     NgxChartsModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    NgxDatatableModule 
+    NgxDatatableModule,
+    FormsModule,
+    ReactiveFormsModule, 
      
   ],
   providers: [graphService],

@@ -40,6 +40,8 @@
   [showYAxisLabel]="showYAxisLabel"
   [xAxisLabel]="xAxisLabel"
   [yAxisLabel]="yAxisLabel"
+  
+[showDataLabel]="dataLabel"
   >
   </ngx-charts-bar-horizontal>
   
@@ -47,11 +49,10 @@
 </div>
 <hr>
 
+<span ><h4 >Reason Wise Count last 12 Months</h4></span>
 <div class="row">
-  <table class="table">
-    <span><h4>Reason Wise Count last 12 Months</h4></span>
     <ngx-datatable
-        class="bootstrap material"
+        class="bootstrap datatable-body-row"
         [rows]="single"
         [columns]="columns"
         [headerHeight]="40"
@@ -61,5 +62,5 @@
         rowHeight="auto"
       >
 </ngx-datatable>
-</table>
+
 </div>
