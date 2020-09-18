@@ -14,7 +14,8 @@ import { graphService } from './graph/graph.service';
     AppComponent,
     GraphComponent
   ],
-  imports: [BrowserModule,
+  imports: [
+    BrowserModule,
     AppRoutingModule,
     NgxChartsModule,
     BrowserAnimationsModule,
