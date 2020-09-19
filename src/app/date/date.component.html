@@ -1,0 +1,61 @@
+
+<h3 style="text-align: center; color: dodgerblue;">Reason Wise Count last 12 Months</h3>
+<br>
+<br>
+<div class="row">
+  <div class="col-md-4">
+    <span style="text-align: center;"><h4>Column Chart</h4></span>
+<ngx-charts-bar-vertical
+[view]="view"
+[scheme]="colorScheme"
+[results]="single"
+[gradient]="gradient"
+[xAxis]="showXAxis"
+[yAxis]="showYAxis"
+[legend]="showLegend"
+[showXAxisLabel]="showXAxisLabel"
+[showYAxisLabel]="showYAxisLabel"
+[xAxisLabel]="xAxisLabel"
+[yAxisLabel]="yAxisLabel"
+[showDataLabel]="dataLabel"
+>
+</ngx-charts-bar-vertical>
+
+</div>
+<div class="col-md-4  offset-md-2">
+  <span style="text-align: center;"><h4>Bar Chart</h4></span>
+  <ngx-charts-bar-horizontal
+  [view]="view"
+  [scheme]="colorSchemeBar"
+  [results]="single"
+  [gradient]="gradient"
+  [xAxis]="showXAxis"
+  [yAxis]="showYAxis"
+  [showXAxisLabel]="showXAxisLabel"
+  [showYAxisLabel]="showYAxisLabel"
+  [xAxisLabel]="xAxisLabel"
+  [yAxisLabel]="yAxisLabel"
+  
+[showDataLabel]="dataLabel"
+  >
+  </ngx-charts-bar-horizontal>
+  
+</div>
+</div>
+<hr>
+
+<div class="row col-md-4 offset-md-1">
+
+    <ngx-datatable
+        class="bootstrap datatable-body-row"
+        [rows]="single"
+        [columns]="columns"
+        [headerHeight]="40"
+        [summaryRow]="true"
+        [summaryPosition]="'bottom'"
+        [footerHeight]="40"
+        rowHeight="auto"
+      >
+</ngx-datatable>
+
+</div>

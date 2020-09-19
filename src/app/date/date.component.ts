@@ -1,14 +1,12 @@
-import { graphService } from './graph.service';
-import { HttpClient } from '@angular/common/http';
+import { DateService } from './date.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'graph',
-  templateUrl: './graph.component.html',
-  styleUrls: ['./graph.component.css']
+  selector: 'app-date',
+  templateUrl: './date.component.html',
+  styleUrls: ['./date.component.scss']
 })
-export class GraphComponent implements OnInit  {
-  title = 'Angular Charts';
+export class DateComponent implements OnInit {
 
   view: any[] = [600, 400];
 
@@ -40,15 +38,15 @@ export class GraphComponent implements OnInit  {
   ]
   };
 
-constructor(private service: graphService){
-  this.graphdata();
+constructor(private service: DateService){
+  this.datedata();
 }
  
   
 ngOnInit(){
 
 }
-graphdata(){
+datedata(){
   this.service.getdata().subscribe((result)=>{
     console.log("call is being made..");
     this.single=result;
@@ -65,3 +63,4 @@ graphdata(){
 // ];
 columns = [{ prop: 'name' }, { prop: 'value' }];
 }
+

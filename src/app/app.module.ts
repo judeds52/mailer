@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -9,11 +10,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { GraphComponent } from './graph/graph.component';
 import { graphService } from './graph/graph.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DateComponent } from './date/date.component';
+import { DateService } from './date/date.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    GraphComponent
+    GraphComponent,
+    DateComponent
   ],
   imports: [
     BrowserModule,
@@ -24,9 +28,21 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NgxDatatableModule,
     FormsModule,
     ReactiveFormsModule, 
-     
+    RouterModule.forRoot([
+      {
+        path: '',
+        component: GraphComponent 
+      },
+      {
+        path: 'date',
+        component: DateComponent 
+      }
+    ]) 
   ],
-  providers: [graphService],
+  providers: [
+    graphService,
+    DateService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
