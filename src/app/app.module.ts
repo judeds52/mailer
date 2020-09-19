@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DateComponent } from './date/date.component';
 import { DateService } from './date/date.service';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +35,31 @@ import { DateService } from './date/date.service';
         component: GraphComponent 
       },
       {
-        path: 'date',
+        path: 'fever',
+        component: DateComponent 
+      },
+      {
+        path: 'cold',
+        component: DateComponent 
+      },
+      {
+        path: 'cancer',
+        component: DateComponent 
+      },
+      {
+        path: 'rashes',
+        component: DateComponent 
+      },
+      {
+        path: 'jaundice',
+        component: DateComponent 
+      },
+      {
+        path: 'diarrhea',
+        component: DateComponent 
+      },
+      {
+        path: 'malaria',
         component: DateComponent 
       }
     ]) 

@@ -39,22 +39,46 @@ export class GraphComponent implements OnInit  {
       '#4bbcfe'
   ]
   };
+  public Names:any=[];
 
-constructor(private service: graphService){
+constructor(private service: graphService,private http: HttpClient){
   this.graphdata();
-}
- 
+  this.getNames();
   
+}
+public convert:any=[];
+  Con_fin;
 ngOnInit(){
 
 }
-graphdata(){
-  this.service.getdata().subscribe((result)=>{
-    console.log("call is being made..");
-    this.single=result;
+ value1:any;
+ value2:any;
+ 
+sendData(value){
+  this.value1=JSON.stringify(value);
+  this.value2=JSON.parse(this.value1)
+  this.http.post("https://server-taskangular1.herokuapp.com/cancer",this.value2).subscribe((result)=>{
+    console.log(result);
+
+  })
+}
+getNames(){
+  this.service.getReason().subscribe((result)=>{
+            this.Names=result;
+            this.convert=JSON.stringify(result);
+            this.Con_fin=JSON.parse(this.convert);
+           
+            
   })
 }
 
+
+graphdata(){
+  this.service.getdata().subscribe((result)=>{
+    console.log("call made");
+    this.single=result;
+  })
+}
 
 
 //for table

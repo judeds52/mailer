@@ -1,3 +1,17 @@
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Reasons
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <li *ngFor="let abc of Names; let i= index">
+      <a class="dropdown-item" routerLink="/{{abc.reason}}" (click)="sendData(abc)">{{abc.reason}}</a>  
+    </li>
+  </div>
+</div>
+<!-- 
+{{Con_fin}}
+{{fin.abc}}
+ charts begin here -->
 
 <h3 style="text-align: center; color: dodgerblue;">Reason Wise Count last 12 Months</h3>
 <br>

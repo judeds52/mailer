@@ -18,6 +18,9 @@ getdata(){
 return  this.http.get('https://server-taskangular1.herokuapp.com')
     
 }
+getReason(){
+  return this.http.get('https://server-taskangular1.herokuapp.com/reason')
+}
 
 
 }

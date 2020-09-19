@@ -1,5 +1,6 @@
+
 import { DateService } from './date.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-date',
@@ -9,7 +10,6 @@ import { Component, OnInit } from '@angular/core';
 export class DateComponent implements OnInit {
 
   view: any[] = [600, 400];
-
   // options for the chart
   showXAxis = true;
   showYAxis = true;
@@ -22,7 +22,6 @@ export class DateComponent implements OnInit {
   timeline = true;
   dataLabel=true;
 
-  
 
  public single:any=[];
   colorScheme = {
@@ -40,16 +39,29 @@ export class DateComponent implements OnInit {
 
 constructor(private service: DateService){
   this.datedata();
+  this.getNames();
 }
  
   
 ngOnInit(){
 
 }
+public convert:any=[];
+ public Names:any=[];
+ Con_fin;
 datedata(){
   this.service.getdata().subscribe((result)=>{
     console.log("call is being made..");
     this.single=result;
+  })
+}
+getNames(){
+  this.service.getReason().subscribe((result)=>{
+            this.Names=result;
+            this.convert=JSON.stringify(result);
+            this.Con_fin=JSON.parse(this.convert);
+           
+            
   })
 }
 
