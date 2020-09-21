@@ -20,12 +20,12 @@ export class DateService {
    
   //for testing
   
-  // getdata(){
-  //   return  this.http.get('http://localhost:5000/cancer')
+//   getdata(){
+//     return  this.http.get('http://localhost:5000/cancer')
         
-  //   }
+//     }
     
-  // getReason(){
-  //   return this.http.get('http://localhost:5000/reason')
-  // }
-}
+//   getReason(){
+//     return this.http.get('http://localhost:5000/reason')
+//   }
+ }

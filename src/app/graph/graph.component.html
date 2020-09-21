@@ -4,7 +4,7 @@
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
     <li *ngFor="let abc of Names; let i= index">
-      <a class="dropdown-item" routerLink="/{{abc.reason}}" (click)="sendData(abc)">{{abc.reason}}</a>  
+      <a class="dropdown-item" routerLink="/reason" (click)="sendData(abc)">{{abc.reason}}</a>  
     </li>
   </div>
 </div>

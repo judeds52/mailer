@@ -69,7 +69,7 @@ value3:any;
   // sendData(value){
   //   this.value1=JSON.stringify(value);
   //   this.value2=JSON.parse(this.value1)
-  //   this.http.post("http://localhost:5000/",this.value2).subscribe((result)=>{
+  //   this.http.post("http://localhost:5000/cancer",this.value2).subscribe((result)=>{
   //     console.log(result);
   //   })
   //   this.http.post("http://localhost:5000/post",this.value2).subscribe((result)=>{

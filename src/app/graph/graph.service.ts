@@ -14,10 +14,10 @@ export class graphService {
 
 constructor(private http:HttpClient){}
 
-// getdata(){
-// return  this.http.get('https://server-taskangular1.azurewebsites.net/')
+getdata(){
+return  this.http.get('https://server-taskangular1.azurewebsites.net/')
     
-// }
+}
 getReason(){
   return this.http.get('https://server-taskangular1.azurewebsites.net/reason')
 }
@@ -29,10 +29,10 @@ getHead(){
 
 //for testing
 
-getdata(){
-  return  this.http.get('http://localhost:5000')
+// getdata(){
+//   return  this.http.get('http://localhost:5000')
       
-  }
+//   }
 
 //   getReason(){
 //     return this.http.get('http://localhost:5000/reason')

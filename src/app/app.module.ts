@@ -35,33 +35,37 @@ import { DateService } from './date/date.service';
         component: GraphComponent 
       },
       {
-        path: 'fever',
-        component: DateComponent 
-      },
-      {
-        path: 'cold',
-        component: DateComponent 
-      },
-      {
-        path: 'cancer',
-        component: DateComponent 
-      },
-      {
-        path: 'rashes',
-        component: DateComponent 
-      },
-      {
-        path: 'jaundice',
-        component: DateComponent 
-      },
-      {
-        path: 'diarrhea',
-        component: DateComponent 
-      },
-      {
-        path: 'malaria',
+        path: 'reason',
         component: DateComponent 
       }
+      // {
+      //   path: 'fever',
+      //   component: DateComponent 
+      // },
+      // {
+      //   path: 'cold',
+      //   component: DateComponent 
+      // },
+      // {
+      //   path: 'cancer',
+      //   component: DateComponent 
+      // },
+      // {
+      //   path: 'rashes',
+      //   component: DateComponent 
+      // },
+      // {
+      //   path: 'jaundice',
+      //   component: DateComponent 
+      // },
+      // {
+      //   path: 'diarrhea',
+      //   component: DateComponent 
+      // },
+      // {
+      //   path: 'malaria',
+      //   component: DateComponent 
+      // }
     ]) 
   ],
   providers: [
