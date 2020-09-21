@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { graphService } from './../graph/graph.service';
 
 import { DateService } from './date.service';
@@ -38,7 +39,7 @@ export class DateComponent implements OnInit {
   ]
   };
 
-constructor(private service: DateService,private service2: graphService){
+constructor(private service: DateService,private service2: graphService, private http:HttpClient){
   this.datedata();
   this.getNames();
   this.getheader();
@@ -79,6 +80,18 @@ getheader(){
       console.log(result, "head");
   })
 }
+value1:any
+value2:any
+sendData(value){
+  this.value1=JSON.stringify(value);
+  this.value2=JSON.parse(this.value1)
+  this.http.post("https://server-taskangular1.azurewebsites.net/cancer",this.value2).subscribe((result)=>{
+    console.log(result);
+  })
+  this.http.post("https://server-taskangular1.azurewebsites.net/post",this.value2).subscribe((result)=>{
+    console.log(result);
+  })
+ }
 
 
 //for table
