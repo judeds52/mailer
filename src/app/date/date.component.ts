@@ -1,3 +1,4 @@
+import { graphService } from './../graph/graph.service';
 
 import { DateService } from './date.service';
 import { Component, Input, OnInit } from '@angular/core';
@@ -37,17 +38,23 @@ export class DateComponent implements OnInit {
   ]
   };
 
-constructor(private service: DateService){
+constructor(private service: DateService,private service2: graphService){
   this.datedata();
   this.getNames();
+  this.getheader();
 }
  
-  
-ngOnInit(){
 
+ngOnInit(){
+  this.datedata();
+  this.getheader();
 }
+
+
 public convert:any=[];
  public Names:any=[];
+ public head:any=[];
+
  Con_fin;
 datedata(){
   this.service.getdata().subscribe((result)=>{
@@ -65,6 +72,13 @@ getNames(){
   })
 }
 
+getheader(){
+  this.service2.getHead().subscribe((result)=>{
+
+      this.head=result;
+      console.log(result, "head");
+  })
+}
 
 
 //for table

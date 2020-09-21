@@ -48,20 +48,40 @@ constructor(private service: graphService,private http: HttpClient){
 }
 public convert:any=[];
   Con_fin;
-ngOnInit(){
 
-}
  value1:any;
  value2:any;
- 
-sendData(value){
+value3:any;
+
+
+ sendData(value){
   this.value1=JSON.stringify(value);
   this.value2=JSON.parse(this.value1)
-  this.http.post("https://server-taskangular1.herokuapp.com/cancer",this.value2).subscribe((result)=>{
+  this.http.post("https://server-taskangular1.azurewebsites.net/cancer",this.value2).subscribe((result)=>{
     console.log(result);
-
   })
-}
+  this.http.post("https://server-taskangular1.azurewebsites.net/post",this.value2).subscribe((result)=>{
+    console.log(result);
+  })
+ }
+  //for testing
+  // this.http.post("http://localhost:5000/cancer",this.value2).subscribe((result)=>{
+  //   console.log(this.value2);
+  //  for(let i=0;i<1;i++){
+  //     this.value3=this.value2.reason;
+  //     this.service.setmessage(this.value3);
+  //     console.log(this.value3);
+  //       break
+  //  }   
+  // })
+  
+  
+
+// this.value2 ," sending value"
+// this.service.setmessage(result);
+ngOnInit(){
+  
+ }
 getNames(){
   this.service.getReason().subscribe((result)=>{
             this.Names=result;
@@ -71,7 +91,6 @@ getNames(){
             
   })
 }
-
 
 graphdata(){
   this.service.getdata().subscribe((result)=>{

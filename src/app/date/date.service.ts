@@ -10,11 +10,22 @@ export class DateService {
   constructor(private http:HttpClient){}
  
   getdata(){
-  return  this.http.get('https://server-taskangular1.herokuapp.com/cancer')
+  return  this.http.get('https://server-taskangular1.azurewebsites.net/cancer')
       
   }
+  
   getReason(){
-    return this.http.get('https://server-taskangular1.herokuapp.com/reason')
+    return this.http.get('https://server-taskangular1.azurewebsites.net/reason')
   }
    
+  //for testing
+  
+  // getdata(){
+  //   return  this.http.get('http://localhost:5000/cancer')
+        
+  //   }
+    
+  // getReason(){
+  //   return this.http.get('http://localhost:5000/reason')
+  // }
 }
