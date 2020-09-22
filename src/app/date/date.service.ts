@@ -9,23 +9,23 @@ import { Injectable } from '@angular/core';
 export class DateService {
   constructor(private http:HttpClient){}
  
-  // getdata(){
-  // return  this.http.get('https://server-taskangular1.azurewebsites.net/cancer')
+  getdata(){
+  return  this.http.get('https://server-taskangular1.azurewebsites.net/cancer')
       
-  // }
+  }
   
-  // getReason(){
-  //   return this.http.get('https://server-taskangular1.azurewebsites.net/reason')
-  // }
+  getReason(){
+    return this.http.get('https://server-taskangular1.azurewebsites.net/reason')
+  }
    
   //for testing
   
-  getdata(){
-    return  this.http.get('http://localhost:5000/cancer')
+//   getdata(){
+//     return  this.http.get('http://localhost:5000/cancer')
         
-    }
+//     }
     
-  getReason(){
-    return this.http.get('http://localhost:5000/reason')
- }
- }
+//   getReason(){
+//     return this.http.get('http://localhost:5000/reason')
+//  }
+  }
