@@ -1,19 +1,16 @@
 <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" style="margin-left: 60px;">
     Reasons
   </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <li *ngFor="let abc of Names; let i= index">
-      <a class="dropdown-item" routerLink="/reason" (click)="sendData(abc)">{{abc.reason}}</a>  
+  <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
+    <li *ngFor="let abc of Names; let i= index" class="dropdown-item">
+      <a class="" href="/reason" (click)="sendData(abc)">{{abc.reason}}</a>  
     </li>
   </div>
 </div>
-<!-- 
-{{Con_fin}}
-{{fin.abc}}
- charts begin here -->
+<h3 style="text-align: center;margin-top:60px ; color: dodgerblue;">
 
-<h3 style="text-align: center; color: dodgerblue;">Reason Wise Count last 12 Months</h3>
+  Reason Wise Count last 12 Months</h3>
 <br>
 <br>
 <div class="row">
@@ -58,7 +55,7 @@
 </div>
 <hr>
 
-<div class="row col-md-4 offset-md-1">
+<div class="row col-md-4 " style="margin-left:50px;">
 
     <ngx-datatable
         class="bootstrap datatable-body-row"

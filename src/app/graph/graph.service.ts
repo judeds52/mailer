@@ -37,7 +37,7 @@ getHead(){
 //   getReason(){
 //     return this.http.get('http://localhost:5000/reason')
 //   }
-// }
+
 
 // getHead(){
 //   return this.http.get('http://localhost:5000/post') 
@@ -46,8 +46,8 @@ getHead(){
   
 //   console.log("RECIECVE", this.value1)
 //   return this.value1;
+// }
 }
-
 
 
 

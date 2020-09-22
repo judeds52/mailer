@@ -1,16 +1,15 @@
 
 <!-- <h1>{{mess}}</h1> -->
 <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       Reasons
     </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <li *ngFor="let abc of Names; let i= index">
+    <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
+      <li *ngFor="let abc of Names; let i= index" >
         <a class="dropdown-item" href="/reason" (click)="sendData(abc)">{{abc.reason}}</a>  
       </li>
     </div>
   </div>
-
 <h3 style="text-align: center; color: dodgerblue;">
     <span *ngFor="let abc of head; let i= index">  
       No of {{abc.reason}} appointments in last 12 months
