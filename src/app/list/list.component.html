@@ -1,0 +1,95 @@
+
+<div class="head">
+    <h1 style="text-align: center; color: dodgerblue; " >
+    Clinic List
+    </h1>
+    <button routerLink="/" class="btn btn-outline-primary">
+    Add clinic
+</button>
+</div>
+<hr>
+
+<br>
+
+<div style="margin-top: 50px;">
+    <table class=" box table table-light">
+        <tr>
+            <th scope="col">
+                Clinic ID
+            </th>
+            <th scope="col">
+                Clinic name
+            </th>
+            <th>
+                website
+            </th>
+            <th>
+                Speciality
+            </th>
+            <th>
+                address 1
+            </th>
+            <th>
+                address 2
+            </th>
+            <th>
+                email
+            </th>
+            <th>
+                phone
+            </th>
+            <th>
+                City
+            </th>
+            <th>    
+                State
+            </th>
+            <th>
+                Pincode
+            </th>
+        </tr>
+        <tr *ngFor="let abc of single">
+            <td>
+                {{abc.clinic_id}}
+            </td>
+            <td>
+                {{abc.clinic_name}}
+            </td>
+            <td>
+                {{abc.website}}
+            </td>
+            <td>
+                {{abc.speciality}}
+            </td>
+            <td>
+                {{abc.address1}}
+            </td>
+            <td>
+                {{abc.address2}}
+            </td>
+            <td>
+                {{abc.email}}
+            </td>
+            <td>
+                {{abc.phone_no}}
+            </td>
+            <td>
+                {{abc.city}}
+            </td>
+            <td>
+                {{abc.state}}
+            </td>
+            <td>
+                {{abc.pincode}}
+            </td>
+
+
+            <td>
+                <span (click)="deletefn(abc.clinic_id)"style="cursor:pointer"><mat-icon style="color: red;">delete</mat-icon></span>
+            </td>
+            <td>
+                <span (click)="updatefn(abc.clinic_id)"style="cursor:pointer" ><mat-icon>create</mat-icon></span>
+            </td>
+        </tr>
+    </table>
+</div>

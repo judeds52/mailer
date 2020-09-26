@@ -45,7 +45,7 @@ constructor(private service: DateService,private service2: graphService, private
   this.getheader();
 }
  
-
+// ngOnInit(){}
 ngOnInit(){
   this.datedata();
   this.getheader();

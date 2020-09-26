@@ -1,0 +1,220 @@
+
+
+<div class="head">
+<h1 style="color: dodgerblue;" >
+    Clinic Details
+    </h1>
+    
+ </div>
+    <button routerLink="/list" style="margin-left: 20px;"class="btn btn-outline-primary">
+        View complete list
+    </button>
+    <hr>   
+    <br>
+    <div *ngIf="submitted" class="alert alert-success">
+        Value submitted        
+    </div>
+  
+  <form #form="ngForm" [formGroup]="forms"class="box" (ngSubmit)="onSubmit()" >
+    <div class="row">
+        <div class="col-12 col-md-4">
+            <div >
+                <mat-form-field class="example-full-width">
+                    <input type="text" matInput formControlName="clinic_name" placeholder="Clinic Name "id="clinic_name" required/>
+                </mat-form-field>
+                <mat-error *ngIf="clinic_name.touched && clinic_name.invalid" >
+                    Please enter clinic name
+                </mat-error>
+            </div>
+        </div>
+
+            <div class="col-12 col-md-4">
+                <div class="form-group">
+                    <mat-form-field class="example-full-width">
+                        <input type="text" matInput formControlName="speciality" id="Speciality" placeholder="Speciality " required/>
+                    </mat-form-field>
+                    <mat-error *ngIf="speciality.touched && speciality.invalid" >
+                        Please enter a speciality
+                    </mat-error>
+                </div>
+            </div>
+    </div>
+    <div class="row">
+                <div class="col-12 col-md-4">
+                    <div class="form-group">
+                        <mat-form-field class="example-full-width">
+                            <input type="text" matInput formControlName="address1" id="add1" placeholder="Address line 1" required/>
+                        </mat-form-field>
+                        <mat-error *ngIf="address1.touched && address1.invalid" >
+                            Please enter address line 1
+                        </mat-error>
+                    </div>
+                </div>
+</div> 
+                <div class="row">
+                    <div class="col-12 col-md-4">
+                        <div class="form-group" >
+                            <mat-form-field class="example-full-width">
+                                <input type="text" matInput formControlName="address2" id="add2" placeholder="Address line 2" required/>
+                            </mat-form-field>
+                         
+                             <mat-error *ngIf="address2.touched && address2.invalid" >
+                                Please enter address line 2
+                             </mat-error>
+                        </div>
+                    </div>
+                </div>
+                    <div class="row">
+                        <div class="col-12 col-md-4">
+                            <div class="form-group" >
+                                <mat-form-field class="example-full-width">
+                                    <input type="text" matInput formControlName="city" id="city" placeholder="City " required/>
+                                </mat-form-field>
+                               
+                                 <mat-error *ngIf="city.touched && city.invalid" >
+                                        Please enter a City
+                                </mat-error>
+                            </div>
+                        </div>
+                    
+                        <div class="col-12 col-md-4">
+                            <div class="form-group">
+                                <mat-form-field  class="example-full-width">
+                                    <input type="text" matInput formControlName="state" id="state" placeholder="State " required/>
+                                </mat-form-field>
+                                
+                                     <mat-error *ngIf="state.touched && state.invalid" >
+                    
+                                            Please enter a state
+                
+                                    </mat-error>        
+                            </div>
+                        </div>
+
+                        
+                        <div class="col-12 col-md-4">
+                            <div class="form-group" >
+                                <mat-form-field class="example-full-width">
+                                    <input type="text" matInput formControlName="pincode" id="pin" placeholder="pincode" maxlength="6" required/>
+                                </mat-form-field>
+                                <mat-error *ngIf="pincode.touched && pincode.invalid" >
+                                    <mat-error *ngIf="pincode.errors.minlength">pincode should be of minimum {{pincode.errors.minlength.requiredLength}} digits</mat-error>
+                             
+                                    <mat-error *ngIf="pincode.errors.required">
+                                            Please enter a pincode
+                                    </mat-error>
+                                    
+                                <mat-error *ngIf="phone.errors.pattern">
+                                    please enter a valid pincode
+                                </mat-error>
+                            </mat-error>
+                                
+                            </div>
+                        </div>
+                        
+        </div>
+                <div class="row">
+            <div class="col-12 col-md-4">
+                <div class="form-group">
+                    <mat-form-field class="example-full-width">
+                        <input type="email" matInput formControlName="email" id="email" placeholder="email " required/>
+                    </mat-form-field>
+                    <mat-error *ngIf="email.touched && email.invalid" class="error-block">
+                        
+                        <mat-error *ngIf="email.errors.required">
+                            please enter a email
+                        </mat-error>
+                        <mat-error *ngIf="email.errors.email">
+                            please enter a valid email
+                        </mat-error>
+                    </mat-error>
+                </div>
+            </div>
+    
+                <div class="col-12 col-md-4">
+                    <div class="form-group">
+                        <mat-form-field class="example-full-width">
+                            <input type="url" matInput formControlName="website" id="site" placeholder="website" required/>
+                        </mat-form-field>
+                        <mat-error *ngIf="website.touched && website.invalid" class="error-block">
+                            Please enter a website
+                        </mat-error>
+                    </div>
+                </div>
+                 
+                <div class="col-12 col-md-4">
+                    <div class="form-group">
+                        <mat-form-field class="example-full-width">
+                            <input type="tel" matInput formControlName="phone_no" maxlength="10" id="phone" placeholder="phone" required/>
+                        </mat-form-field>
+                        <mat-error *ngIf="phone.touched && phone.invalid" class="error-block">
+                            <mat-error *ngIf="phone.errors.required">Please enter a phone number</mat-error>
+                            <mat-error *ngIf="phone.errors.minlength">please enter a phone number of 10 digits</mat-error>
+                            
+                            <mat-error *ngIf="phone.errors.pattern">
+                                please enter a valid phone number
+                            </mat-error>
+                        </mat-error>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="phone.errors||clinic_name.errors||address1.errors||address2.errors||city.errors||
+            state.errors||pincode.errors||speciality.errors||email.errors||website.errors;then disable else show"></div> 
+                <ng-template #disable>
+                    <button disabled class="btn btn-outline-primary" value="submit" >Submit</button>
+                 </ng-template>   
+                 <ng-template #show>
+                    <button  class="btn btn-outline-primary" value="submit" >Submit</button>
+                 </ng-template> 
+    </form>
+<!-- <div>
+    <ngx-datatable
+        class="material"
+        [rows]="single"
+        [columns]="columns"
+        [headerHeight]="40"
+        [summaryRow]="true"
+        [summaryPosition]="'bottom'"
+        [footerHeight]="40"
+        rowHeight="auto"
+      >
+</ngx-datatable>
+</div> -->
+<div style="margin-top: 50px;">
+    <table class=" box table table-light">
+        <tr>
+            <th scope="col">
+                Clinic ID
+            </th>
+            <th scope="col">
+                Clinic name
+            </th>
+            <th>
+                website
+            </th>
+            <th>
+                Speciality
+            </th>
+        </tr>
+        <tr *ngFor="let abc of single">
+            <td>
+                {{abc.clinic_id}}
+            </td>
+            <td>
+                {{abc.clinic_name}}
+            </td>
+            <td>
+                {{abc.website}}
+            </td>
+            <td>
+                {{abc.speciality}}
+            </td>
+            <td>
+                <span (click)="deletefn(abc.clinic_id)"style="cursor:pointer"><mat-icon style="color: red;">delete</mat-icon></span>
+            </td>
+            <td>
+                <span (click)="updatefn(abc.clinic_id)"style="cursor:pointer" ><mat-icon>create</mat-icon></span>
+            </td>
+        </tr>
+    </table>
+</div>

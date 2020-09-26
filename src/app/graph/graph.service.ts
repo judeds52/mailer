@@ -41,13 +41,13 @@ getHead(){
 
 // getHead(){
 //   return this.http.get('http://localhost:5000/post') 
-//  }
+ }
 // getmessage(){
   
 //   console.log("RECIECVE", this.value1)
 //   return this.value1;
 // }
-}
+
 
 
 

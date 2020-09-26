@@ -1,3 +1,4 @@
+import { MatInputModule } from '@angular/material/input';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -12,13 +13,20 @@ import { graphService } from './graph/graph.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DateComponent } from './date/date.component';
 import { DateService } from './date/date.service';
-
-
+import { FormComponent } from './form/form.component';
+import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
+import {MatIcon, MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import { UpdateComponent } from './update/update.component';
+import { ListComponent } from './list/list.component';
 @NgModule({
   declarations: [
     AppComponent,
     GraphComponent,
-    DateComponent
+    DateComponent,
+    FormComponent,
+    UpdateComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,
@@ -28,45 +36,27 @@ import { DateService } from './date/date.service';
     HttpClientModule,
     NgxDatatableModule,
     FormsModule,
-    ReactiveFormsModule, 
+    ReactiveFormsModule,
     RouterModule.forRoot([
       {
         path: '',
-        component: GraphComponent 
+        component: FormComponent 
       },
       {
-        path: 'reason',
-        component: DateComponent 
+        path: 'update/:id',
+        component: UpdateComponent 
+      },
+      {
+        path: 'list',
+        component: ListComponent
       }
-      // {
-      //   path: 'fever',
-      //   component: DateComponent 
-      // },
-      // {
-      //   path: 'cold',
-      //   component: DateComponent 
-      // },
-      // {
-      //   path: 'cancer',
-      //   component: DateComponent 
-      // },
-      // {
-      //   path: 'rashes',
-      //   component: DateComponent 
-      // },
-      // {
-      //   path: 'jaundice',
-      //   component: DateComponent 
-      // },
-      // {
-      //   path: 'diarrhea',
-      //   component: DateComponent 
-      // },
-      // {
-      //   path: 'malaria',
-      //   component: DateComponent 
-      // }
-    ]) 
+    ]),
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatIconModule
+
+     
   ],
   providers: [
     graphService,
