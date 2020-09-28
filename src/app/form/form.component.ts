@@ -16,6 +16,7 @@ export class FormComponent implements OnInit {
 
   constructor(public fb:FormBuilder, private service:ApiService, private service2:FormService,private http:HttpClient,private router:Router) {
       this.datedata();
+      this.getspec();
    }
    get address1(){
      return this.forms.get("address1")
@@ -57,6 +58,7 @@ columns = [{ prop: 'clinic_id' }, { prop: 'clinic_name' },{ prop: 'email' }];
 clinicForm: FormGroup
   ngOnInit(): void {
     this.datedata();
+    this.getspec();
     
    this.forms = this.fb.group({
     clinic_name: new FormControl('',Validators.required),
@@ -65,9 +67,9 @@ clinicForm: FormGroup
     address1: new FormControl('',Validators.required),
     address2: new FormControl('',Validators.required),
     speciality: new FormControl('',Validators.required),
-    website: new FormControl('',Validators.required),
+    website: new FormControl(''),
     email: new FormControl('',[Validators.required,Validators.email]),
-    phone_no: new FormControl('',[Validators.required,Validators.minLength(10),Validators.pattern('[0-9]{10}'),Validators.maxLength(10)]),
+    phone_no: new FormControl('',[Validators.minLength(10),Validators.pattern('[0-9]{10}'),Validators.maxLength(10)]),
     pincode: new FormControl('',[Validators.required,Validators.pattern('[0-9]{6}'),Validators.minLength(6),Validators.maxLength(6)])
    
    });
@@ -108,6 +110,20 @@ clinicForm: FormGroup
       
   
   }
+  // onSubmit(){
+    
+  //   this.submitted=true;
+
+       
+  //    this.http.post('http://localhost:5600',this.forms.value).subscribe((result)=>{
+  //      console.log('inserting....');
+  //     console.log(this.forms.value);
+  //     this.datedata();
+      
+  //   });
+      
+  
+  // }
 
   datedata(){
     this.service2.getdata().subscribe((result)=>{
@@ -117,6 +133,12 @@ clinicForm: FormGroup
     })
   }
    atr;
+   wantToDelete(value){
+     
+     if(confirm("Are you sure you want to delete this clinic")){
+       this.deletefn(value);
+     }
+   }
   deletefn(value){
     // this.url=this.router.navigate(['http://localhost:5600/',value])
     // console.log(value);
@@ -126,6 +148,7 @@ clinicForm: FormGroup
     // })
 
     let url = `https://server-taskangular2.azurewebsites.net/${value}`;
+    // let url = `http://localhost:5600/${value}`;
     console.log(value);
     this.http.delete(url).subscribe((result)=>{
       console.log("deleting on progress....");
@@ -136,13 +159,23 @@ clinicForm: FormGroup
 updatefn(value){
   this.router.navigate(['/update',value])
 }
+specs:any=[];
+getspec(){
+  // this.http.get('http://localhost:5600/spec/abc').subscribe(result=>{
+    this.http.get('https://server-taskangular2.azurewebsites.net/spec/abc').subscribe(result=>{
+      console.log("speciality call is being made");
+      
+console.log('result of spec',result);
+  this.specs=result;
 
+  })
+}
   // deletefn(value): Observable<any> {
   //   // let url = `${this.baseUri}${appointmentId}`;
   //    return this.http
   //   .delete('http://localhost:5600/', {
   //       headers: {
-  //         "Content-Type": "application/json",
+  //         "content-Type": "application/json",
   //         "X-auth-header": JSON.parse(
   //           window.localStorage.getItem("value")
   //         ),

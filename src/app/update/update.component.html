@@ -146,7 +146,8 @@
         <button class="btn btn-outline-primary" value="submit" >Update</button>
     </form> -->
 
-    
+    <mat-spinner class="center" *ngIf="isLoading"></mat-spinner>
+
 
 <div class="head">
         <h1 style="text-align: center; color: dodgerblue; " >
@@ -183,11 +184,21 @@
                 <div class="col-12 col-md-4">
                     <div class="form-group">
                         <mat-form-field class="example-full-width">
-                            <input type="text" matInput formControlName="speciality" id="Speciality" placeholder="Speciality " required/>
-                        </mat-form-field>
+                             <!-- <input type="text"[(ngModel)]="isSelected" matInput formControlName="speciality" id="Speciality" placeholder="Speciality " required hidden/> -->
+                        <!--</mat-form-field>
                         <mat-error *ngIf="speciality.touched && speciality.invalid" >
                             Please enter a speciality
+                        </mat-error> -->
+                        <mat-label >speciality</mat-label>
+                         <mat-select   formControlName="speciality">
+                                <mat-option *ngFor="let spec of specs" [value]="spec.speciality_category">
+                                     {{spec.speciality_category}}
+                                </mat-option>
+                         </mat-select>
+                         <mat-error *ngIf="speciality.touched && speciality.invalid">
+                            Please choose a speciality
                         </mat-error>
+                        </mat-form-field>
                     </div>
                 </div>
         </div>
@@ -284,21 +295,21 @@
                     <div class="col-12 col-md-4">
                         <div class="form-group">
                             <mat-form-field class="example-full-width">
-                                <input type="url" matInput formControlName="website" id="site" placeholder="website" required/>
+                                <input type="url" matInput formControlName="website" id="site" placeholder="website" />
                             </mat-form-field>
-                            <mat-error *ngIf="website.touched && website.invalid" class="error-block">
+                            <!-- <mat-error *ngIf="website.touched && website.invalid" class="error-block">
                                 Please enter a website
-                            </mat-error>
+                            </mat-error> -->
                         </div>
                     </div>
                      
                     <div class="col-12 col-md-4">
                         <div class="form-group">
                             <mat-form-field class="example-full-width">
-                                <input type="tel" maxlength="10" matInput formControlName="phone_no" id="phone" placeholder="phone" required/>
+                                <input type="tel" maxlength="10" matInput formControlName="phone_no" id="phone" placeholder="phone" />
                             </mat-form-field>
                             <mat-error *ngIf="phone.touched && phone.invalid" class="error-block">
-                                <mat-error *ngIf="phone.errors.required">Please enter a phone number</mat-error>
+                                <!-- <mat-error *ngIf="phone.errors.required">Please enter a phone number</mat-error> -->
                                 <mat-error *ngIf="phone.errors.minlength">please enter a phone number of 10 digits</mat-error>
                                 
                                         <mat-error *ngIf="phone.errors.pattern">
@@ -308,8 +319,8 @@
                         </div>
                     </div>
                 </div>
-                <div *ngIf="phone.errors||clinic_name.errors||address1.errors||address2.errors||city.errors||
-                state.errors||pincode.errors||speciality.errors||email.errors||website.errors;then disable else show"></div> 
+                <div *ngIf="speciality.errors||clinic_name.errors||address1.errors||address2.errors||city.errors||
+                state.errors||pincode.errors||email.errors;then disable else show"></div> 
                     <ng-template #disable>
                         <button disabled class="btn btn-outline-primary" value="submit" >Submit</button>
                      </ng-template>   

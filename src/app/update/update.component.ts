@@ -13,13 +13,14 @@ import { tick } from '@angular/core/testing';
 export class UpdateComponent implements OnInit {
 
   constructor(public fb: FormBuilder,private http:HttpClient,private router:ActivatedRoute,private router1:Router) {
-    
+    this.isLoading= true  
    }
 id;
+isLoading=false
   ngOnInit(): void {
    this.id= this.router.snapshot.paramMap.get('id');
       this.getData(this.id);
-      
+      this.getspec();
     this.forms = this.fb.group({
       clinic_id:new FormControl(''), 
       clinic_name: new FormControl('',Validators.required),
@@ -28,9 +29,9 @@ id;
       address1: new FormControl('',Validators.required),
       address2: new FormControl('',Validators.required),
       speciality: new FormControl('',Validators.required),
-      website: new FormControl('',Validators.required),
+      website: new FormControl(''),
       email: new FormControl('',[Validators.required,Validators.email]),
-      phone_no: new FormControl('',[Validators.required,Validators.minLength(10),Validators.pattern('[0-9]{10}'),Validators.maxLength(10)]),
+      phone_no: new FormControl('',[Validators.minLength(10),Validators.pattern('[0-9]{10}'),Validators.maxLength(10)]),
       pincode: new FormControl('',[Validators.required,Validators.pattern('[0-9]{6}'),Validators.minLength(6),Validators.maxLength(6)])
     })    
   }
@@ -40,6 +41,7 @@ id;
      
     console.log('this',id)
    let url = `https://server-taskangular2.azurewebsites.net/${id}`;
+  // let url = `http://localhost:5600/${id}`;
    console.log(id);
    this.http.get(url).subscribe((result)=>{
      console.log("getting data.....");
@@ -57,7 +59,9 @@ id;
         email:this.single[0].email,
         phone_no:this.single[0].phone_no,
         pincode:this.single[0].pincode,
-    })
+    
+      })
+      this.isLoading=false;
     //  this.a1=this.single[0].clinic_name;
     // this.a2=this.single[0].city;
     // this.a3=this.single[0].state;
@@ -85,7 +89,19 @@ id;
 
    
   }
-   
+  tb;
+  ta; 
+specs:any=[];
+getspec(){
+  // this.http.get('http://localhost:5600/spec/abc').subscribe(result=>{
+    this.http.get('https://server-taskangular2.azurewebsites.net/spec/abc').subscribe(result=>{
+      console.log("speciality call is being made");
+      
+this.specs=result;
+console.log('this is spec',this.specs)
+
+  })
+}
   
   get address1(){
     return this.forms.get("address1")
@@ -126,17 +142,18 @@ id;
   submit:any=[];
   onSubmit(){
     
-     console.log('onSUbmit id',this.forms.value);
+     console.log('onSUbmit id',this.forms.get('speciality').value);
      
     let url = 'https://server-taskangular2.azurewebsites.net/update';
-  
+    // let url = 'http://localhost:5600/update';
       this.http.post(url,this.forms.value).subscribe((result)=>{
           console.log('Updating in progress....')
           
   })
     
    }
-  convert;
+   selectedValue:string;
+     convert;
   Con_fin;
 
   a1;

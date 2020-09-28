@@ -19,6 +19,9 @@ import {MatIcon, MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { UpdateComponent } from './update/update.component';
 import { ListComponent } from './list/list.component';
+import {MatSelectModule} from '@angular/material/select';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +29,8 @@ import { ListComponent } from './list/list.component';
     DateComponent,
     FormComponent,
     UpdateComponent,
-    ListComponent
+    ListComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -37,6 +41,7 @@ import { ListComponent } from './list/list.component';
     NgxDatatableModule,
     FormsModule,
     ReactiveFormsModule,
+
     RouterModule.forRoot([
       {
         path: '',
@@ -54,7 +59,9 @@ import { ListComponent } from './list/list.component';
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatSelectModule,
+    MatProgressSpinnerModule
 
      
   ],

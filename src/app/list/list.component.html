@@ -1,3 +1,5 @@
+<mat-spinner class="center" *ngIf="isLoading"></mat-spinner>
+
 
 <div class="head">
     <h1 style="text-align: center; color: dodgerblue; " >
@@ -85,7 +87,7 @@
 
 
             <td>
-                <span (click)="deletefn(abc.clinic_id)"style="cursor:pointer"><mat-icon style="color: red;">delete</mat-icon></span>
+                <span (click)="wantToDelete(abc.clinic_id)"style="cursor:pointer"><mat-icon style="color: red;">delete</mat-icon></span>
             </td>
             <td>
                 <span (click)="updatefn(abc.clinic_id)"style="cursor:pointer" ><mat-icon>create</mat-icon></span>
