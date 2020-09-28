@@ -31,15 +31,21 @@ export class ListComponent implements OnInit {
   updatefn(value){
     this.router.navigate(['/update',value])
   }
-  wantToDelete(value){
+  
+  deleted=false;
+  delValue;
+  delName;
+  wantToDelete(value,value1){
      
     if(confirm("Are you sure you want to delete this clinic")){
-      this.deletefn(value);
+      this.deletefn(value,value1);
     }
   }
   
-  deletefn(value){
- 
+  deletefn(value,value1){
+    this.deleted=true;
+    this.delValue=value;
+    this.delName=value1;
     let url = `https://server-taskangular2.azurewebsites.net/${value}`;
     // let url = `http://localhost:5600/${value}`;
     console.log(value);

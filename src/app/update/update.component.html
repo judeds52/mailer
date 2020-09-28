@@ -243,14 +243,22 @@
                             <div class="col-12 col-md-4">
                                 <div class="form-group">
                                     <mat-form-field  class="example-full-width">
-                                        <input type="text" matInput formControlName="state" id="state" placeholder="State " required/>
-                                    </mat-form-field>
-                                    
-                                         <mat-error *ngIf="state.touched && state.invalid" >
-                        
-                                                Please enter a state
+                                        <!-- <input type="text" matInput formControlName="state" id="state" placeholder="State " required/>
+                                    </mat-form-field> -->
+                                               
+                    <mat-label>State</mat-label>
+                    <mat-select   formControlName="state">
+                        <mat-option *ngFor="let state of state123" [value]="state.value">
+                             {{state.value}}
+                        </mat-option>
+                 </mat-select>
+                                     <mat-error *ngIf="state.touched && state.invalid" >
                     
-                                        </mat-error>        
+                                            Please enter a state
+                
+                                    </mat-error>
+                                    </mat-form-field>        
+        
                                 </div>
                             </div>
     
@@ -327,5 +335,8 @@
                      <ng-template #show>
                         <button  class="btn btn-outline-primary" value="submit" >Submit</button>
                      </ng-template> 
+                     
+                         <button style="margin-left: 5%;" class="btn btn-outline-primary" routerLink="/">Cancel</button>
+                     
         </form>
     

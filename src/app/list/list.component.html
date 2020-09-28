@@ -13,6 +13,9 @@
 
 <br>
 
+<div *ngIf="deleted" class="alert alert-danger">
+    Clinic id:- {{delValue}} ,Clinic Name:- {{delName}} was succefully deleted       
+  </div>
 <div style="margin-top: 50px;">
     <table class=" box table table-light">
         <tr>
@@ -87,7 +90,7 @@
 
 
             <td>
-                <span (click)="wantToDelete(abc.clinic_id)"style="cursor:pointer"><mat-icon style="color: red;">delete</mat-icon></span>
+                <span (click)="wantToDelete(abc.clinic_id,abc.clinic_name)"style="cursor:pointer"><mat-icon style="color: red;">delete</mat-icon></span>
             </td>
             <td>
                 <span (click)="updatefn(abc.clinic_id)"style="cursor:pointer" ><mat-icon>create</mat-icon></span>

@@ -1,12 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { FormService } from './form.service';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { FormControl, FormGroup, Validators, FormBuilder, AbstractControl } from '@angular/forms';
 import { ApiService } from '../api.service';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { ActivatedRoute, Router } from "@angular/router";
-
+interface states{
+  value: string;
+}
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -17,6 +19,7 @@ export class FormComponent implements OnInit {
   constructor(public fb:FormBuilder, private service:ApiService, private service2:FormService,private http:HttpClient,private router:Router) {
       this.datedata();
       this.getspec();
+      this.state123;
    }
    get address1(){
      return this.forms.get("address1")
@@ -59,7 +62,8 @@ clinicForm: FormGroup
   ngOnInit(): void {
     this.datedata();
     this.getspec();
-    
+    this.state123;
+    console.log('states =', this.state123)
    this.forms = this.fb.group({
     clinic_name: new FormControl('',Validators.required),
     city: new FormControl('',Validators.required),
@@ -99,7 +103,6 @@ clinicForm: FormGroup
   onSubmit(){
     
     this.submitted=true;
-
        
      this.http.post('https://server-taskangular2.azurewebsites.net/',this.forms.value).subscribe((result)=>{
        console.log('inserting....');
@@ -133,20 +136,25 @@ clinicForm: FormGroup
     })
   }
    atr;
-   wantToDelete(value){
+   wantToDelete(value,value1){
      
      if(confirm("Are you sure you want to delete this clinic")){
-       this.deletefn(value);
+       this.deletefn(value,value1);
      }
    }
-  deletefn(value){
+   deleted=false;
+   delValue;
+   delName;
+  deletefn(value,value1){
     // this.url=this.router.navigate(['http://localhost:5600/',value])
     // console.log(value);
     // this.http.post("http://localhost:5600/delete",value).subscribe((result)=>{
     //   console.log("deleting on progress....");
     //   this.datedata();
     // })
-
+    this.deleted=true;
+    this.delValue=value;
+    this.delName=value1
     let url = `https://server-taskangular2.azurewebsites.net/${value}`;
     // let url = `http://localhost:5600/${value}`;
     console.log(value);
@@ -182,5 +190,45 @@ console.log('result of spec',result);
   //       },
   //     });
   // }
+  state123: states[] = [
+    {value: "Andhra Pradesh"},
+    {value: "Arunachal Pradesh"},
+    {value: "Assam"},
+    {value: "Bihar"},
+    {value: "Chhattisgarh"},
+    {value: "Goa"},
+    {value: "Gujarat"},
+    {value: "Haryana"},
+    {value: "Himachal Pradesh"},
+    {value: "Jharkhand"},
+    {value: "Karnataka"},
+    {value: "Kerala"},
+    {value: "Madhya Pradesh"},
+    {value: "Maharashtra"},
+    {value: "Manipur"},
+    {value: "Meghalaya"},
+    {value: "Mizoram"},
+    {value: "Nagaland"},
+    {value: "Odisha"},
+    {value: "Punjab"},
+    {value: "Rajasthan"},
+    {value: "Sikkim"},
+    {value: "Tamil Nadu"},
+    {value: "Telangana"},
+    {value: "Tripura"},
+    {value: "Uttar Pradesh"},
+    {value: "Uttarakhand"},
+    {value: "West Bengal"},
+    {value: "Andaman and Nicobar Islands"},
+    {value: "Chandigard"},
+    {value: "Dadra and Nagar Haveli and Daman and Diu"},
+    {value: "Delhi"},
+    {value: "Jammu and Kashmir"},
+    {value: "Ladakh"},
+    {value: "Lakshadweep"},
+    {value: "Puducherry"}
 
+
+  ];
 }
+
