@@ -100,25 +100,11 @@ clinicForm: FormGroup
     Validators
   })
   }
-  onSubmit(){
-    
-    this.submitted=true;
-       
-     this.http.post('https://server-taskangular2.azurewebsites.net/',this.forms.value).subscribe((result)=>{
-       console.log('inserting....');
-      console.log(this.forms.value);
-      this.datedata();
-      
-    });
-      
-  
-  }
   // onSubmit(){
     
   //   this.submitted=true;
-
        
-  //    this.http.post('http://localhost:5600',this.forms.value).subscribe((result)=>{
+  //    this.http.post('https://server-taskangular2.azurewebsites.net/',this.forms.value).subscribe((result)=>{
   //      console.log('inserting....');
   //     console.log(this.forms.value);
   //     this.datedata();
@@ -127,6 +113,20 @@ clinicForm: FormGroup
       
   
   // }
+  onSubmit(){
+    
+    this.submitted=true;
+
+       
+     this.http.post('http://localhost:5600',this.forms.value).subscribe((result)=>{
+       console.log('inserting....');
+      console.log(this.forms.value);
+      this.datedata();
+      
+    });
+      
+  
+  }
 
   datedata(){
     this.service2.getdata().subscribe((result)=>{
