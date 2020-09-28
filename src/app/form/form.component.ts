@@ -169,8 +169,8 @@ updatefn(value){
 }
 specs:any=[];
 getspec(){
-  // this.http.get('http://localhost:5600/spec/abc').subscribe(result=>{
-    this.http.get('https://server-taskangular2.azurewebsites.net/spec/abc').subscribe(result=>{
+  this.http.get('http://localhost:5600/spec/abc').subscribe(result=>{
+    // this.http.get('https://server-taskangular2.azurewebsites.net/spec/abc').subscribe(result=>{
       console.log("speciality call is being made");
       
 console.log('result of spec',result);
