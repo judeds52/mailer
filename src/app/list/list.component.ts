@@ -1,4 +1,4 @@
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
@@ -11,6 +11,11 @@ export class ListComponent implements OnInit {
 
   constructor(private http:HttpClient,private router:Router) { 
     this.isLoading=true;
+    this.router.events.subscribe((ev)=>{
+      if(ev instanceof NavigationEnd){
+        this.datedata();
+      }
+    })
   }
 
   ngOnInit(): void {
