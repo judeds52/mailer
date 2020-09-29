@@ -92,7 +92,17 @@ isLoading=false
    
   }
   tb;
-  ta; 
+  ta;
+  updateVal(){
+  if(confirm("Are you sure you want to Update this clinic details")){
+    this.onSubmit();
+    this.router1.navigate(['/list'])
+  } 
+  else{
+    this.router1.navigate(['/']);
+  }
+}
+submitted=false;
 specs:any=[];
 getspec(){
   // this.http.get('http://localhost:5600/spec/abc').subscribe(result=>{
@@ -150,7 +160,7 @@ console.log('this is spec',this.specs)
     // let url = 'http://localhost:5600/update';
       this.http.post(url,this.forms.value).subscribe((result)=>{
           console.log('Updating in progress....')
-          
+          this.submitted=true;
   })
     
    }

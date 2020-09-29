@@ -100,13 +100,18 @@ clinicForm: FormGroup
     Validators
   })
   }
+  message;
+  
   onSubmit(){
     
     this.submitted=true;
        
      this.http.post('https://server-taskangular2.azurewebsites.net/',this.forms.value).subscribe((result)=>{
        console.log('inserting....');
-      console.log(this.forms.value);
+      console.log(result);
+      this.message=result;
+     
+    console.log(this.message)
       this.datedata();
       
     });

@@ -163,8 +163,11 @@
 </div>
 <hr>
 
+<div *ngIf="submitted" class="alert alert-success">
+    Clinic Updated        
+</div>
 <br>
-      <form #form="ngForm" [formGroup]="forms" class="box" (ngSubmit)="onSubmit()" >
+      <form #form="ngForm" [formGroup]="forms" class="box" (ngSubmit)="updateVal()" >
         <div class="row">
             <div>
                 
