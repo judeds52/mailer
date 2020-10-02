@@ -21,6 +21,7 @@ import { UpdateComponent } from './update/update.component';
 import { ListComponent } from './list/list.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MedsComponent } from './meds/meds.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     FormComponent,
     UpdateComponent,
     ListComponent,
+    MedsComponent,
     
   ],
   imports: [
