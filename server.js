@@ -4,7 +4,7 @@ const path = require('path');
 
 require('dotenv').config();
 const db= require('./backend/db/db_con');
-const port=process.env.PORT || 5600;
+const port=5600;
 const cors =require('cors');
 const bodyParser=require('body-parser')
 
