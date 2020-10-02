@@ -26,13 +26,13 @@ get email(){
   return this.forms.get('email');
 }
 getMedList(){
-  this.http.get('https://server-taskangular1.herokuapp.com//meds').subscribe(result=>{
+  this.http.get('https://server-taskangular2.azurewebsites.net/meds').subscribe(result=>{
     console.log(result);
     this.list=result;
   });
 }
 onAdd(){
-  this.http.put('https://server-taskangular1.herokuapp.com/meds/add',this.forms.value).subscribe(result=>{
+  this.http.put('https://server-taskangular2.azurewebsites.net/meds/add',this.forms.value).subscribe(result=>{
         console.log(result);
         this.qtn=result;
   }) 
@@ -40,18 +40,18 @@ onAdd(){
 }
  abc;
 onRemove(){
-  this.http.put('https://server-taskangular1.herokuapp.com/meds/remove',this.forms.value).subscribe(result=>{
+  this.http.put('https://server-taskangular2.azurewebsites.net/meds/remove',this.forms.value).subscribe(result=>{
     this.qtn=result;
     
      })
 }
 sendEmail(){
-  this.http.post('https://server-taskangular1.herokuapp.com/meds/email',this.forms.value).subscribe(result=>{
+  this.http.post('https://server-taskangular2.azurewebsites.net/meds/email',this.forms.value).subscribe(result=>{
         console.log(result)
   })
 }
 show(){
-  this.http.put('https://server-taskangular1.herokuapp.com/meds/show',this.forms.value).subscribe(result=>{
+  this.http.put('https://server-taskangular2.azurewebsites.net/meds/show',this.forms.value).subscribe(result=>{
     this.qtn=result;
     
      })
