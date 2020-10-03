@@ -46,7 +46,7 @@ onRemove(){
      })
 }
 sendEmail(){
-  this.http.post('https://server-taskangular2.azurewebsites.net/meds/email',this.forms.value).subscribe(result=>{
+  this.http.post('https://server-taskangular2.azurewebsites.net/email',this.forms.value).subscribe(result=>{
         console.log(result)
   })
 }
