@@ -17,7 +17,7 @@ export class MedsComponent implements OnInit {
       medList: new FormControl('',Validators.required),
       email: new FormControl('',[Validators.required,Validators.email])
     })
-    
+    this.sent=false;
   }
 list:any=[];
 qtn:any=[];
@@ -45,9 +45,11 @@ onRemove(){
     
      })
 }
+  sent=false;
 sendEmail(){
   this.http.post('https://server2610.herokuapp.com/email',this.forms.value).subscribe(result=>{
         console.log(result)
+        this.sent=true;
   })
 }
 show(){
