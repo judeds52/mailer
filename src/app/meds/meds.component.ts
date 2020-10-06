@@ -47,10 +47,11 @@ onRemove(){
 }
   sent=false;
 sendEmail(){
-  this.http.post('https://server2610.herokuapp.com/email',this.forms.value).subscribe(result=>{
-        console.log(result)
-        this.sent=true;
-  })
+//   this.http.post('https://server2610.herokuapp.com/email',this.forms.value).subscribe(result=>{
+//         console.log(result)
+        
+//   })
+  this.sent=true;
 }
 show(){
   this.http.put('https://server2610.herokuapp.com/meds/show',this.forms.value).subscribe(result=>{
